@@ -1,0 +1,34 @@
+body {
+    font-family: Calibri;
+}
+
+fieldset {
+    border: 1px solid black;
+    width: 200px;
+    background-color: #ebebeb;
+}
+
+input[type=submit] {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    background-color: #dcdcdc;
+}
+
+input[type=text], input[type=email] {
+    padding: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+.error {
+    color: red;
+}

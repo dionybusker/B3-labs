@@ -1,0 +1,16 @@
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+img {
+    width: 25%;
+    height: auto;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+p {
+    width: 450px;
+    display: inline-block;
+}
