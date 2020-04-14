@@ -1,15 +1,11 @@
 <?php
-    include("includes/dbcon.php");
+    require("includes/functions.php");
 
-    $stmt = $conn->prepare("SELECT * FROM characters WHERE id = :id");
-    $stmt->execute([':id' => $_GET['id']]);
-    $result = $stmt->fetch();
+    $result = getCharacter($id);
 
-    // includen van de header
-    include("includes/header.php");
-    
 ?>
 
+<?php include("includes/header.php"); ?>
     <body>
         <main id="container">
             <div id="cards-container">
@@ -36,11 +32,16 @@
                     </div>
                     <div class="bio">
                         <p><?php echo $result['bio']; ?></p>
+
+                        <form>
+                            <label><b>Current location:</b></label>
+                            <select>
+                                <option value="1">Bowsers Castle</option>
+                            </select>
+                            <input type="submit" value="update">
+                        </form>
+
                     </div>
                 </div>
             </div>
-
-            <?php include("includes/footer.php"); ?>
-        </main>
-    </body>
-</html>
+<?php include("includes/footer.php"); ?>

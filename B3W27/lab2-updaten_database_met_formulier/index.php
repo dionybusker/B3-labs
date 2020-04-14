@@ -1,20 +1,12 @@
 <?php
-    include("includes/dbcon.php");
+    require("includes/functions.php");
 
-    $stmt = $conn->prepare("SELECT * FROM characters ORDER BY name");
-    $stmt->execute();
-    $result = $stmt->fetchAll();
+    $result = getAllCharacters();
+    $resultCount = countAllCharacters();
 
-    $count = $conn->prepare("SELECT COUNT(*) FROM characters");
-    $count->execute();
-    $rowsCount = $count->fetch();
-    $resultCount = $rowsCount[0];
-
-    // includen van de header
-    include("includes/header.php");
-    
 ?>
 
+<?php include("includes/header.php"); ?>
     <body>
         <main id="container">
             <div id="cards-container">
@@ -36,8 +28,4 @@
                     </div>
                 <?php } ?>
             </div>
-
-            <?php include("includes/footer.php"); ?>
-        </main>
-    </body>
-</html>
+<?php include("includes/footer.php"); ?>
