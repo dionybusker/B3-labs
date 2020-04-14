@@ -80,7 +80,7 @@ main#container {
     margin: 0;
 }
 
-h1, p.more-info {
+h1, .more-info {
     display: block;
     margin: 5px 0;
     text-align: center;

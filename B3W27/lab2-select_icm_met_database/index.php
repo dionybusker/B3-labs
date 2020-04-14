@@ -5,7 +5,7 @@
     $allCharacters = getAllCharacters();
     $countCharacters = countAllCharacters();
 
-    $sortCharacters = sortCharacter();
+    $orderCharacters = orderCharacter();
 
     // $sort = $_POST["characters"] != "choose" ? $_POST[""]
     
@@ -17,29 +17,27 @@
         <main id="container">
             <div id="cards-container">
                 <h1>All <?php echo $countCharacters; ?> characters</h1>
-                <p class="more-info">
-                    Click on the character's avatar to see more. <br>
+                <p class="more-info">Click on the character's avatar to see more.</p>
 
-                    <form action="index.php" method="POST">
+                    <form class="more-info" action="index.php" method="POST">
                         <label for="character-select">Sort all <?php echo $countCharacters; ?> characters: </label>
                         
-                        <select name="characters" id="character-select">
+                        <select name="option" id="character-select">
                             <option value="name">Name</option>
                             <option value="health">Health</option>
                             <option value="attack">Attack</option>
                             <option value="defense">Defense</option>
                         </select>
 
-                        <select name="asc-desc">
+                        <select name="order">
                             <option value="lowToHigh">Lowest to highest</option>
                             <option value="highToLow">Highest to lowest</option>
                         </select>
 
                         <input type="submit" value="Go!">
                     </form>
-                </p>
 
-                <?php foreach ($sortCharacters as $row) { ?>
+                <?php foreach ($orderCharacters as $row) { ?>
                     <div class="cards border solid" style="background-color:<?php echo $row['color']; ?>">
                         <a href="character.php?id=<?php echo $row['id']; ?>">
                             <img class="avatar border solid" src="img/<?php echo $row['avatar']; ?>" alt="<?php echo $row['name']; ?> avatar" title="Bekijk meer over <?php echo $row['name']; ?>!">

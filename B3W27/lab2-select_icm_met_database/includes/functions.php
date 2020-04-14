@@ -55,7 +55,7 @@
     }
 
     // karakters sorteren op naam/levenskracht/aanvalskracht/verdediging
-    function sortCharacter() {
+    function orderCharacter() {
         $conn = databaseConn();
 
         // $query = $conn->prepare("SELECT * FROM characters ORDER BY health");
@@ -63,14 +63,14 @@
 
         // return $query->fetchAll();
 
-        $sort = $_POST["characters"];
-        $ascDesc = $_POST["asc-desc"];
+        $option = $_POST["option"];
+        $order = $_POST["order"];
 
-        if (!empty($sort)) {
-            if ($ascDesc == "lowToHigh") {
-                $query = $conn->prepare("SELECT * FROM characters ORDER BY $sort ASC");
+        if (!empty($option)) {
+            if ($order == "lowToHigh") {
+                $query = $conn->prepare("SELECT * FROM characters ORDER BY $option ASC");
             } else {
-                $query = $conn->prepare("SELECT * FROM characters ORDER BY $sort DESC");
+                $query = $conn->prepare("SELECT * FROM characters ORDER BY $option DESC");
             }
         } else {
             $query = $conn->prepare("SELECT * FROM characters ORDER BY name");
